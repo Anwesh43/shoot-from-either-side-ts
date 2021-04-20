@@ -2,7 +2,7 @@ const w : number = window.innerWidth
 const h : number = window.innerHeight
 const parts : number = 4 
 const scGap : number = 0.02 / 3
-const sizeFactor : number = 3.9 
+const sizeFactor : number = 2.9 
 const ballRFactor : number = 11.2 
 const delay : number = 20 
 const backColor : string = "#bdbdbd"
@@ -54,7 +54,7 @@ class DrawingUtil {
         for (var j = 0; j < 2; j++) {
             context.save()
             context.scale(1 - 2 * j, 1)
-            DrawingUtil.drawCircle(context, -size / 2 - r - (w / 2) * sf4, 0, r * sf3)
+            DrawingUtil.drawCircle(context, -size / 2 - (w / 2) * sf4, 0, r * sf3)
             context.restore()
         }
         context.restore()
