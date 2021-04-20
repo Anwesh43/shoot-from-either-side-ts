@@ -205,3 +205,25 @@ class ShootFromEitherSide {
         this.curr.startUpdating(cb)
     }
 }
+
+class Renderer {
+
+    sfes : ShootFromEitherSide = new ShootFromEitherSide()
+    animator : Animator = new Animator()
+
+    render(context : CanvasRenderingContext2D) {
+        this.sfes.draw(context)
+    }
+
+    handleTap(cb : Function) {
+        this.sfes.startUpdating(() => {
+            this.animator.start(() => {
+                cb()
+                this.sfes.update(() => {
+                    this.animator.stop()
+                    cb()
+                })
+            })
+        })
+    }
+}
